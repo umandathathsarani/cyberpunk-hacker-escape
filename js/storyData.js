@@ -50,7 +50,7 @@ const storyNodes = [
   },
   {
     id: 4,
-    text: "The door slides open. You step into the main corridor. To your left is the Security Office, to your right is the Mainframe Core.",
+    text: "The door slides open. You step into the main corridor. The facility is massive. You see paths leading to the Security Office, the Mainframe Core, an unmapped AI Lab, and a Ventilation Grate.",
     options: [
       {
         text: "Enter the Security Office",
@@ -59,6 +59,14 @@ const storyNodes = [
       {
         text: "Proceed to the Mainframe Core",
         nextText: 8
+      },
+      {
+        text: "Pry open the Ventilation Grate",
+        nextText: 11
+      },
+      {
+        text: "Enter the restricted AI Lab",
+        nextText: 18
       }
     ]
   },
@@ -94,6 +102,11 @@ const storyNodes = [
         text: "Take the drive and head to the Mainframe Core",
         setState: { malware: true },
         nextText: 8
+      },
+      {
+        text: "Pry open the ceiling vent in the office",
+        setState: { malware: true },
+        nextText: 11
       }
     ]
   },
@@ -107,6 +120,11 @@ const storyNodes = [
         nextText: 9
       },
       {
+        text: "Let the AI ally bypass the firewalls for you",
+        requiredState: (currentState) => currentState.ai_ally,
+        nextText: 9
+      },
+      {
         text: "Try to bypass the final firewalls using brute force",
         nextText: 10
       }
@@ -114,17 +132,142 @@ const storyNodes = [
   },
   {
     id: 9,
-    text: "The malware successfully disables the firewalls and unlocks the extraction elevator. You step inside just as corporate security breaches the floor. You escaped.",
+    text: "The firewalls drop and the extraction elevator opens. You step inside, but instead of taking you to the basement garage, it accelerates upward towards the Executive Penthouse.",
     options: [
       {
-        text: "INITIATE_ESCAPE.exe (Victory - Play Again)",
-        nextText: -1
+        text: "Prepare for a confrontation",
+        nextText: 12
       }
     ]
   },
   {
     id: 10,
     text: "The mainframe detects your unauthorized entry attempt. Security drones drop from the ceiling and surround you. SYSTEM COMPROMISED.",
+    options: [
+      {
+        text: "REBOOT_SYSTEM.exe (Restart)",
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 11,
+    text: "You crawl through the dusty ventilation shafts. You find the remains of a previous infiltrator and scavenge an EMP GRENADE from their belt.",
+    options: [
+      {
+        text: "Drop down into the Security Office",
+        setState: { emp_grenade: true },
+        nextText: 7
+      },
+      {
+        text: "Drop down near the Mainframe Core",
+        setState: { emp_grenade: true },
+        nextText: 8
+      }
+    ]
+  },
+  {
+    id: 12,
+    text: "The elevator doors open to the rain-slicked Penthouse helipad. A heavily augmented Corporate Enforcer blocks your path to the waiting extraction chopper.",
+    options: [
+      {
+        text: "Throw the EMP GRENADE",
+        requiredState: (currentState) => currentState.emp_grenade,
+        nextText: 13
+      },
+      {
+        text: "Command your AI ally to overload his cybernetics",
+        requiredState: (currentState) => currentState.ai_ally,
+        nextText: 17
+      },
+      {
+        text: "Try to sneak around him in the dark",
+        nextText: 14
+      },
+      {
+        text: "Draw your stun baton and fight him head-on",
+        nextText: 15
+      }
+    ]
+  },
+  {
+    id: 13,
+    text: "The EMP grenade detonates, frying the Enforcer's optics and locking his augmented limbs. He collapses, clearing the path.",
+    options: [
+      {
+        text: "Run to the extraction chopper",
+        nextText: 16
+      }
+    ]
+  },
+  {
+    id: 14,
+    text: "His thermal optics immediately lock onto your body heat. You don't make it three steps before he catches you. SYSTEM COMPROMISED.",
+    options: [
+      {
+        text: "REBOOT_SYSTEM.exe (Restart)",
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 15,
+    text: "Your stun baton barely scratches his military-grade armor. He counters with a devastating blow. SYSTEM COMPROMISED.",
+    options: [
+      {
+        text: "REBOOT_SYSTEM.exe (Restart)",
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 16,
+    text: "You board the chopper and it lifts off into the neon sky. You have successfully escaped with your life and the corporate data. YOU WIN.",
+    options: [
+      {
+        text: "PLAY_AGAIN.exe (Restart)",
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 17,
+    text: "The Rogue AI hacks into the Enforcer's neural link. He screams as his own cybernetics turn against him and shut down. You board the chopper. With an AI in your head, the real run is just beginning. YOU WIN.",
+    options: [
+      {
+        text: "PLAY_AGAIN.exe (Restart)",
+        nextText: -1
+      }
+    ]
+  },
+  {
+    id: 18,
+    text: "Inside the AI Lab, a captive Rogue AI speaks through the intercom. 'If you upload my consciousness to your personal rig, I can help you escape.'",
+    options: [
+      {
+        text: "Accept the upload (Gain AI Ally)",
+        setState: { ai_ally: true },
+        nextText: 19
+      },
+      {
+        text: "Refuse and smash the terminal",
+        nextText: 20
+      }
+    ]
+  },
+  {
+    id: 19,
+    text: "A cold sensation runs down your neck as the AI enters your neural interface. 'Access granted,' it whispers. You head back to the corridor.",
+    options: [
+      {
+        text: "Return to the main corridor",
+        nextText: 4
+      }
+    ]
+  },
+  {
+    id: 20,
+    text: "The AI is insulted. It instantly overrides the facility's safety protocols and seals the room forever. SYSTEM COMPROMISED.",
     options: [
       {
         text: "REBOOT_SYSTEM.exe (Restart)",
