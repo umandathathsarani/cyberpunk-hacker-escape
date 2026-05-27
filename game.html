@@ -29,19 +29,26 @@
                 <span>root@mainframe:~</span>
             </div>
             
-            <div class="terminal-body" id="story-text">
-                Establishing secure connection...
-            </div>
+            <div class="terminal-body" id="story-text"></div>
             
-            <div class="choices-container" id="choice-buttons">
-            </div>
+            <div class="choices-container" id="choice-buttons"></div>
         </div>
 
         <aside class="inventory-panel">
             <h3>INVENTORY</h3>
-            <ul id="inventory-list">
-            </ul>
+            <ul id="inventory-list"></ul>
         </aside>
+
+        <div id="minigame-overlay" class="hidden">
+            <div class="minigame-box">
+                <h3>FIREWALL BYPASS</h3>
+                <div class="timing-bar-container">
+                    <div class="target-zone"></div>
+                    <div id="moving-cursor"></div>
+                </div>
+                <button id="hack-btn" class="btn-neon">EXECUTE</button>
+            </div>
+        </div>
     </main>
 
     <script src="js/cursor.js"></script>
