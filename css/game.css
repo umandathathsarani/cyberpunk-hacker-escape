@@ -91,3 +91,15 @@
     content: "> ";
     color: var(--accent-color);
 }
+
+#story-text::after {
+    content: '█';
+    color: var(--text-main);
+    animation: blink 1s step-end infinite;
+    margin-left: 5px;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
