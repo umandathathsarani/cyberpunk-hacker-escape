@@ -22,4 +22,6 @@ An interactive, text-based terminal web game built to demonstrate vanilla web de
 
 This repository and its contents are not open-source. You may not copy, reproduce, distribute, publish, display, modify, create derivative works, or in any way exploit any part of this code without explicit, written permission from the author. 
 
-To request permission to use or modify this code, please contact me directly.
+To request permission to use or modify this code, please contact me directly:
+* **Email:** [umathathsarani2003@gmail.com](mailto:umathathsarani2003@gmail.com)
+* **WhatsApp:** [Message me here](https://wa.me/94742813833)
