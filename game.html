@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terminal - Cyberpunk Hacker Escape</title>
+    
+    <link rel="icon" type="image/png" href="assets/ui/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/game.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-brand">SYS_ADMIN</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="game.html" class="active">Terminal</a></li>
+            <li><a href="about.html">About Developer</a></li>
+        </ul>
+    </nav>
+
+    <main class="game-container">
+        <div class="terminal-window">
+            <div class="terminal-header">
+                <span>root@mainframe:~</span>
+            </div>
+            
+            <div class="terminal-body" id="story-text">
+                Establishing secure connection...
+            </div>
+            
+            <div class="choices-container" id="choice-buttons">
+            </div>
+        </div>
+
+        <aside class="inventory-panel">
+            <h3>INVENTORY</h3>
+            <ul id="inventory-list">
+            </ul>
+        </aside>
+    </main>
+
+    <script src="js/cursor.js"></script>
+    <script src="js/storyData.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
